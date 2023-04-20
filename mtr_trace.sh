@@ -6,16 +6,16 @@ ips=(219.141.136.12 202.106.50.1 221.179.155.161 202.96.209.133 210.22.97.1 211.
 # ISP Names
 names=(北京电信 北京联通 北京移动 上海电信 上海联通 上海移动 深圳电信 深圳联通 深圳移动)
 # Log path
-path=mtr_trace.log
+path='mtr_trace.log'
 
 # Check if mtr is installed
 if [ ! -f /usr/bin/mtr ];then
 	echo "未检测到mtr命令,正在安装..."
 	# Check OS
 	if [ -f /etc/redhat-release ];then
-		yum clean all && yum makecache && yum install mtr -y
+		sudo yum install mtr -y
 	else
-		apt update -y && apt install mtr -y
+		sudo apt install mtr -y
 	fi
 fi
 
